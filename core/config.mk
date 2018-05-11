@@ -518,9 +518,23 @@ LLVM_RS_CC := $(prebuilt_sdk_tools_bin)/llvm-rs-cc
 BCC_COMPAT := $(prebuilt_sdk_tools_bin)/bcc_compat
 endif # TARGET_BUILD_PDK
 endif # TARGET_BUILD_APPS || TARGET_BUILD_PDK
+ACP := $(prebuilt_build_tools_bin)/acp
+CKATI := $(prebuilt_build_tools_bin)/ckati
+DEPMOD := $(HOST_OUT_EXECUTABLES)/depmod
+FILESLIST := $(SOONG_HOST_OUT_EXECUTABLES)/fileslist
 
+ifneq ($(IJAR_EXEC),)
+IJAR := $(IJAR_EXEC)
+else
+IJAR := $(prebuilt_build_tools_bin)/ijar
+endif
 
-# ---------------------------------------------------------------
+MAKEPARALLEL := $(prebuilt_build_tools_bin)/makeparallel
+SOONG_JAVAC_WRAPPER := $(SOONG_HOST_OUT_EXECUTABLES)/soong_javac_wrapper
+SOONG_ZIP := $(SOONG_HOST_OUT_EXECUTABLES)/soong_zip
+ZIP2ZIP := $(SOONG_HOST_OUT_EXECUTABLES)/zip2zip
+ZIPTIME := $(prebuilt_build_tools_bin)/ziptime
+
 # Generic tools.
 JACK := $(HOST_OUT_EXECUTABLES)/jack
 
